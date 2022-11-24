@@ -1,10 +1,13 @@
+import ExpensesList from '../components/ExpensesList';
 import PageLayout from '../components/PageLayout';
+import Searchbar from '../components/Searchbar';
 
 export default function Home() {
   return (
     <PageLayout metaTitle='Expenses | Home'>
-      <section className=''>
-        <h1 className=''>Welcome to Expenses</h1>
+      <section className='md:mt-6'>
+        <Searchbar />
+        <ExpensesList />
       </section>
     </PageLayout>
   );

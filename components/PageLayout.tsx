@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Header from './Header';
 
 type PageLayoutProps = {
   metaTitle?: string;
@@ -18,14 +19,9 @@ function PageLayout({
         <meta name='description' content={metaDesc} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <header className='flex justify-center bg-white h-[60px]'>
-        <div className='flex justify-between items-center w-full mx-16'>
-          <button className='invisible'>New Expense</button>
-          <h1 className='text-2xl font-bold text-center'>Expenses</h1>
-          <button>New Expense</button>
-        </div>
-      </header>
-      <main className='bg-blue-200'>{children}</main>
+
+      <Header />
+      <main className='max-w-screen-lg mx-auto'>{children}</main>
     </div>
   );
 }
