@@ -23,6 +23,11 @@ function CreateForm() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    if (Object.values(formData).some((value) => value === '')) {
+      alert('Please fill out all fields');
+      return;
+    }
+
     console.log(formData);
   }
 
