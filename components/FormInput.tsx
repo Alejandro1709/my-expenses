@@ -3,7 +3,7 @@ type FormInputProps = {
   type?: string;
   placeholder?: string;
   name: string;
-  value?: string;
+  value?: string | number;
   defaultValue?: string | number;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
