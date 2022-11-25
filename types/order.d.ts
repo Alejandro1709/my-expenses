@@ -10,6 +10,4 @@ export default interface IOrder {
   quantity: number;
   currency: string;
   total: number;
-  createdAt: string;
-  updatedAt: string;
 }
