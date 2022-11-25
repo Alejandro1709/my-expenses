@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import FormGroup from './FormGroup';
 import FormInput from './FormInput';
 
@@ -15,12 +16,14 @@ function CreateForm() {
     image: '',
   });
 
+  const router = useRouter();
+
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   }
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (Object.values(formData).some((value) => value === '')) {
@@ -28,7 +31,18 @@ function CreateForm() {
       return;
     }
 
-    console.log(formData);
+    const response = await fetch('/api/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      alert('Order created successfully');
+      router.push('/');
+    }
   }
 
   return (
